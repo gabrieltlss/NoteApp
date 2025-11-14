@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notas</title>
+
+    <!-- Google icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <!-- W3.CSS (framework) -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="/styles/home.css">
+</head>
+
+<body>
+
+    <!-- Não use w3-container junto de w3-grid! w3-grid já é o bastante -->
+    <header class="w3-grid w3-info">
+        <button class="material-symbols-outlined w3-button" id="menu-btn">menu</button>
+        <h1 class="w3-center">App de notas</h1>
+    </header>
+
+    <section>
+        <nav class="w3-sidebar w3-bar-block w3-border-right w3-hide w3-animate-left" id="sidebar" style="z-index: 2;">
+            <a href="" class="w3-bar-item w3-button" id="home-btn">Home</a>
+            <a href="" class="w3-bar-item w3-button" id="archived-btn">Arquivadas</a>
+            <a href="" class="w3-bar-item w3-button" id="user-account">Conta</a>
+            <a href="http://localhost:3000/logout" class="w3-bar-item w3-button">Sair</a>
+        </nav>
+    </section>
+
+    <section class="w3-panel">
+        <div class="w3-right w3-animate-opacity" id="filter-container">
+            <span class="">Filtrar por:</span>
+
+            <div class="w3-dropdown-click">
+                <button class="material-symbols-outlined w3-button w3-info w3-medium"
+                    id="filter-btn">filter_list</button>
+
+                <div class="w3-dropdown-content w3-bar-block w3-border" id="filter-dropdown" style="right: 0;">
+                    <a href="" class="w3-bar-item w3-button" id="sort-recent">Mais recentes</a>
+                    <a href="" class="w3-bar-item w3-button" id="sort-oldest">Mais antigas</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="w3-modal" id="note-modal">
+        <div class="w3-modal-content">
+            <header class="w3-container w3-info w3-center">
+                <h2>Criar nota</h2>
+            </header>
+
+            <div class="w3-container">
+                <form id="note-form">
+                    <div class="w3-section">
+                        <label for="title">Título:</label>
+                        <input type="text" name="title" id="title" class="w3-input" required>
+                    </div>
+
+                    <label for="note-content-form">Texto:</label><br>
+                    <textarea name="content" id="note-content-form" placeholder="Conteúdo da nota" required></textarea>
+
+                    <button type="submit" class="w3-button w3-info">Criar</button>
+                    <span id="form-feedback"></span>
+                </form>
+            </div>
+
+            <div class="w3-panel w3-padding w3-light-gray">
+                <button class="w3-button w3-red w3-right" id="close-modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <section class="w3-flex" id="notes-container">
+
+    </section>
+
+
+    <button class="w3-button w3-circle w3-padding w3-info w3-xlarge w3-animate-opacity" id="create-note-btn">+</button>
+
+    <script type="module" src=" /js/index.js">
+    </script>
+</body>
+
+</html>
