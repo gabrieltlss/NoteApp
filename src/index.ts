@@ -2,6 +2,7 @@ import express from "express";
 import session from "express-session";
 import { router } from "./routes.ts";
 import path from "path";
+import cors from "cors";
 // import { fileURLToPath } from 'url';
 // import { dirname } from 'path';
 
@@ -15,6 +16,7 @@ app.set("view engine", "ejs");
 app.set("views", path.join("views"));
 
 // Diretório público + urlEncoded
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
