@@ -22,4 +22,5 @@ app.use(session({
 }));
 // Router 
 app.use(router);
-app.listen(3000, () => console.log("Server initialized: http://localhost:3000/login"));
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log("Server initialized: http://localhost:3000/login"));
