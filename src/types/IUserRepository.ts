@@ -1,6 +1,6 @@
 import { QueryResult } from "pg";
-import { UserType } from "./UserType";
-import { NoteType } from "./NoteTypes";
+import { UserType } from "./UserType.ts";
+import { NoteType } from "./NoteTypes.ts";
 
 export interface IUserRepository {
     findAll: () => Promise<QueryResult<UserType[]>>

@@ -1,8 +1,8 @@
-import { client, pool } from "../database/PgClientQuery";
-import { IUserRepository } from "../types/IUserRepository";
+import { client, pool } from "../database/PgClientQuery.ts";
+import { IUserRepository } from "../types/IUserRepository.ts";
 import { QueryResult } from "pg";
-import { UserType } from "../types/UserType";
-import { NoteType } from "../types/NoteTypes";
+import { UserType } from "../types/UserType.ts";
+import { NoteType } from "../types/NoteTypes.ts";
 
 // Baixo nível -> faz query e retorna-a, somente.
 export class UserRepository implements IUserRepository {

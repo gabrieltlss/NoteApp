@@ -1,6 +1,6 @@
 import { Handler } from "express";
-import { UserRepository } from "../repositories/UserRepository";
-import { UserServices } from "../services/UserServices";
+import { UserRepository } from "../repositories/UserRepository.ts";
+import { UserServices } from "../services/UserServices.ts";
 
 const userRepository = new UserRepository();
 const userServices = new UserServices(userRepository);

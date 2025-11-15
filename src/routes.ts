@@ -1,12 +1,17 @@
 import { Router } from "express";
-import { AppController } from "./controllers/AppController";
-import { RenderController } from "./controllers/RenderController";
-import { loginAndRegisterAuth, homeAndLogoutAuth } from "./middlewares/authMiddleware";
+import { AppController } from "./controllers/AppController.ts";
+import { RenderController } from "./controllers/RenderController.ts";
+import { loginAndRegisterAuth, homeAndLogoutAuth } from "./middlewares/authMiddleware.ts";
 
 const router = Router();
 
 const appController = new AppController();
 const renderController = new RenderController();
+
+// Render endpoint
+router.get("/health", (req, res) => {
+    res.status(200).json({ status: "ok" });
+})
 
 // AppController routes
 router.get("/logout", homeAndLogoutAuth, appController.logout);

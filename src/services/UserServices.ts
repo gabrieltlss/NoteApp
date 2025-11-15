@@ -1,6 +1,6 @@
-import { UserAccount } from "../model/UserAccount";
-import { IUserRepository } from "../types/IUserRepository";
-import { checkEmailInput, checkPasswordInput, checkNameInput, formatName } from "./InputAuth";
+import { UserAccount } from "../model/UserAccount.ts";
+import { IUserRepository } from "../types/IUserRepository.ts";
+import { checkEmailInput, checkPasswordInput, checkNameInput, formatName } from "./InputAuth.ts";
 import bcrypt from "bcrypt";
 
 // Camada para regras de negócio do usuário, de funcionalidades do sitema, de inputs e etc...

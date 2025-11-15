@@ -1,5 +1,5 @@
-import { UserRepository } from "../repositories/UserRepository";
-import { UserServices } from "../services/UserServices";
+import { UserRepository } from "../repositories/UserRepository.js";
+import { UserServices } from "../services/UserServices.js";
 const userRepository = new UserRepository();
 const userServices = new UserServices(userRepository);
 export class RenderController {

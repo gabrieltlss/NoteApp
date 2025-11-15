@@ -1,4 +1,4 @@
-import { pool } from "../database/PgClientQuery";
+import { pool } from "../database/PgClientQuery.js";
 // Baixo nível -> faz query e retorna-a, somente.
 export class UserRepository {
     async findAll() {

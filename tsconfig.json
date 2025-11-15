@@ -10,7 +10,8 @@
     "target": "esnext",
     "types": [],
     "allowSyntheticDefaultImports": true,
-    "moduleResolution": "bundler"
+    "moduleResolution": "bundler",
+    "rewriteRelativeImportExtensions": true
     // For nodejs:
     // "lib": ["esnext"],
     // "types": ["node"],

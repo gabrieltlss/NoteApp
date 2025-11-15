@@ -1,5 +1,5 @@
-import { UserAccount } from "../model/UserAccount";
-import { checkEmailInput, checkPasswordInput, checkNameInput, formatName } from "./InputAuth";
+import { UserAccount } from "../model/UserAccount.js";
+import { checkEmailInput, checkPasswordInput, checkNameInput, formatName } from "./InputAuth.js";
 import bcrypt from "bcrypt";
 // Camada para regras de negócio do usuário, de funcionalidades do sitema, de inputs e etc...
 export class UserServices {
