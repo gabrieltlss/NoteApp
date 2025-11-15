@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "sync": "node ./dist/database/sync/sync.js",
+    "sync": "node ./dist/database/sync/syncDb.js",
     "build": "tsc",
     "dev": "node ./dist/index.js"
   },
