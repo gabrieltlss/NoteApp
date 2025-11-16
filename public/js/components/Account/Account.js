@@ -72,7 +72,7 @@ export default function Account(user) {
             return;
         }
 
-        if (result.success) { window.location.href = "/login" }
+        if (result.success) { window.location.href = "/" }
     })
 
     modalHeader.appendChild(headerTitle);

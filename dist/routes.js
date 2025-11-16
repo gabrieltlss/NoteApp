@@ -15,7 +15,7 @@ router.post("/login/user", loginAndRegisterAuth, appController.login);
 router.post("/register/user", loginAndRegisterAuth, appController.register);
 router.delete("/deleteUser", appController.delete);
 // Render pages routes
-router.get("/login", loginAndRegisterAuth, renderController.loginPage);
+router.get("/", loginAndRegisterAuth, renderController.loginPage);
 router.get("/register", loginAndRegisterAuth, renderController.registerPage);
 // home
 router.get("/home", homeAndLogoutAuth, renderController.homePage);

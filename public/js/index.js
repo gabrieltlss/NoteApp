@@ -46,7 +46,7 @@ const filterContainer = document.getElementById("filter-container");
 // Obter notas ao iniciar aplicação
 addEventListener("DOMContentLoaded", async () => {
     try {
-        const result = await fetch("http://localhost:3000/home/getNotes");
+        const result = await fetch("https://noteapp-58ox.onrender.com/home/getNotes");
         const notes = await result.json();
 
         userNotes = notes.filter((note) => note.status !== "archived");

@@ -58,7 +58,7 @@ export class AppController {
                     throw new Error("Erro ao excluir sessão.");
                 }
             });
-            res.redirect("/login");
+            res.redirect("/");
         }
         catch (error) {
             res.json({ errorMessage: error.message });

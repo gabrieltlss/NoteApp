@@ -7,5 +7,5 @@ export const loginAndRegisterAuth: Handler = (req, res, next) => {
 
 export const homeAndLogoutAuth: Handler = (req, res, next) => {
     if (req.session["authenticated"]) next();
-    else res.redirect("/login");
+    else res.redirect("/");
 }
