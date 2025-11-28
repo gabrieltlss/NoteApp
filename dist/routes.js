@@ -9,14 +9,15 @@ const renderController = new RenderController();
 router.get("/health", (req, res) => {
     res.status(200).json({ status: "ok" });
 });
-// AppController routes
-router.get("/logout", homeAndLogoutAuth, appController.logout);
-router.post("/login/user", loginAndRegisterAuth, appController.login);
-router.post("/register/user", loginAndRegisterAuth, appController.register);
-router.delete("/deleteUser", appController.delete);
 // Render pages routes
 router.get("/", loginAndRegisterAuth, renderController.loginPage);
-router.get("/register", loginAndRegisterAuth, renderController.registerPage);
+// router.get("/register", loginAndRegisterAuth, renderController.registerPage);
+// AppController routes
+router.get("/login", loginAndRegisterAuth, appController.login);
+router.get("/googleAuth", appController.googleAuth);
+router.post("/register/user", loginAndRegisterAuth, appController.register);
+router.get("/logout", homeAndLogoutAuth, appController.logout);
+router.delete("/deleteUser", appController.delete);
 // home
 router.get("/home", homeAndLogoutAuth, renderController.homePage);
 router.get("/home/user", homeAndLogoutAuth, renderController.getUserInfo);

@@ -16,33 +16,21 @@
     </header>
 
     <main class="w3-container w3-flex">
-        <form action="/login/user" method="post">
-            <h2 class="w3-center">Login</h2>
-
-            <div class="w3-section">
-                <label for="email">Email:</label>
-                <input type="email" name="email" id="email" class="w3-input">
-            </div>
-
-            <div>
-                <label for="password">Senha:</label>
-                <input type="password" name="password" id="password" class="w3-input">
-            </div>
-
-            <div class="w3-section">
-                <button type="submit" class="w3-button w3-info">Entrar</button>
-
-                <% if (typeof errorMessage !=='undefined' ) {%>
-                    <span class="w3-margin-left w3-small w3-text-red" id="login-feedback">
-                        <%= errorMessage %>
-                    </span>
-                    <% }%>
-            </div>
-
-            <div class="w3-section">
-                <a href="/register" class="w3-right">Cadastre-se</a>
-            </div>
+        <form action="/login" method="get" class="w3-center">
+            <h2>Entrar com o Google</h2>
+            <p>Clique no botão abaixo para autenticar-se com a sua conta Google.</p>
+            <button class="w3-button w3-asphalt">
+                <span class="google-icon">
+                    <img src="./google-icon.svg" alt="" width="24px">
+                </span>
+                Entrar
+            </button>
         </form>
+
+        <!--
+            Criar aqui a span/div para conter errors ou 
+            falhas de autenticação.
+        -->
     </main>
 
     <!-- <footer class="w3-container w3-info w3-center">

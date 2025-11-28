@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notas</title>
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+
+<body>
+    <header class="w3-container w3-info w3-center">
+        <h1>App de notas</h1>
+    </header>
+
+    <main class="w3-container w3-flex">
+        <form action="/login" method="post">
+            <h2 class="w3-center">Login</h2>
+
+            <div class="w3-section">
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" class="w3-input">
+            </div>
+
+            <div>
+                <label for="password">Senha:</label>
+                <input type="password" name="password" id="password" class="w3-input">
+            </div>
+
+            <div class="w3-section">
+                <button type="submit" class="w3-button w3-info">Entrar</button>
+
+                <% if (typeof errorMessage !=='undefined' ) {%>
+                    <span class="w3-margin-left w3-small w3-text-red" id="login-feedback">
+                        <%= errorMessage %>
+                    </span>
+                    <% }%>
+            </div>
+
+            <div class="w3-section">
+                <a href="/register" class="w3-right">Cadastre-se</a>
+            </div>
+        </form>
+    </main>
+
+    <!-- <footer class="w3-container w3-info w3-center">
+        <p>Created by <a href="">Gabriel Teles</a></p>
+    </footer> -->
+</body>
+
+</html>
