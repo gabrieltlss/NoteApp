@@ -19,16 +19,6 @@ let userCredentials = null;
 export class AppController {
     login: Handler = async (req, res) => {
         try {
-            // const email: string = req.body.email;
-            // const password: string = req.body.password;
-
-            // const user = await userServices.login(email, password);
-
-            // req.session["authenticated"] = true;
-            // req.session["user"] = user.getSessionInfo();
-
-            // res.redirect("/home");
-
             const state: string = crypto.randomUUID().toString();
             req.session["state"] = state;
 
@@ -69,10 +59,6 @@ export class AppController {
                         access_token: userCredentials.access_token,
                         id_token: userCredentials.id_token
                     });
-
-                    // Aqui, farei chamadas ao BD para:
-                    // - verificar se usuário já existe (usando o email)
-                    // - Criar usuário caso não existam
 
                     // User exists?
                     const user = await userServices.getUser(userInfo.data.email);
