@@ -1,14 +1,12 @@
-import { QueryResult } from "pg";
-import { UserType } from "./UserType.ts";
-import { NoteType } from "./NoteTypes.ts";
+import { QueryResult } from "mysql2";
 
 export interface IUserRepository {
-    findAll: () => Promise<QueryResult<UserType[]>>
-    findUserByEmail: (email: string) => Promise<QueryResult<UserType | null>>
-    createUser: (name: string, email: string, password: string) => Promise<QueryResult<UserType>>
-    getUserNotes: (userId: number) => Promise<QueryResult<NoteType[] | null>>
-    createUserNotes: (userId: number, title: string, content: string) => Promise<QueryResult<NoteType>>
-    deleteUserNote: (noteId: number) => Promise<QueryResult<NoteType>>
-    updateNoteStatus: (noteId: number, status: "archived" | "active") => Promise<QueryResult<NoteType>>
+    findAll: () => Promise<QueryResult>
+    findUserByEmail: (email: string) => Promise<QueryResult>
+    createUser: (name: string, email: string, password: string) => Promise<QueryResult>
+    getUserNotes: (userId: number) => Promise<QueryResult[]>
+    createUserNotes: (userId: number, title: string, content: string) => Promise<QueryResult>
+    deleteUserNote: (noteId: number) => Promise<QueryResult>
+    updateNoteStatus: (noteId: number, status: "archived" | "active") => Promise<QueryResult>
     deleteUser: (userId: number, userEmail: string) => Promise<Boolean>
 }

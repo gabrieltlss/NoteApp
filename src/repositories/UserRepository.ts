@@ -1,20 +1,18 @@
-import { client, pool } from "../database/PgClientQuery.ts";
+import { client, pool } from "../database/ClientAndPool.ts";
 import { IUserRepository } from "../types/IUserRepository.ts";
-import { QueryResult } from "pg";
-import { UserType } from "../types/UserType.ts";
-import { NoteType } from "../types/NoteTypes.ts";
+import { QueryResult } from "mysql2";
 
 // Baixo nível -> faz query e retorna-a, somente.
 export class UserRepository implements IUserRepository {
-    async findAll(): Promise<QueryResult<UserType[]>> {
-        return pool.query("SELECT * FROM user_account;");
+    async findAll(): Promise<QueryResult> {
+        return pool.query("SELECT * FROM user_account;")[0];
     }
 
-    async findUserByEmail(email: string): Promise<QueryResult<UserType | null>> {
+    async findUserByEmail(email: string): Promise<QueryResult> {
         return pool.query("SELECT * FROM user_account WHERE email = $1;", [email]);
     }
 
-    async createUser(name: string, email: string, password: string): Promise<QueryResult<UserType>> {
+    async createUser(name: string, email: string, password: string): Promise<QueryResult> {
         try {
             return await pool.query(
                 "INSERT INTO user_account (name, email, password) VALUES ($1, $2, $3) RETURNING *;",
@@ -25,28 +23,28 @@ export class UserRepository implements IUserRepository {
         }
     }
 
-    async getUserNotes(userId: number): Promise<QueryResult<NoteType[] | null>> {
-        return pool.query(
+    async getUserNotes(userId: number): Promise<QueryResult[]> {
+        return await pool.query(
             "SELECT * FROM user_notes WHERE user_id = $1;",
             [userId]
         );
     }
 
-    async createUserNotes(userId: number, title: string, content: string): Promise<QueryResult<NoteType>> {
+    async createUserNotes(userId: number, title: string, content: string): Promise<QueryResult> {
         return pool.query(
             "INSERT INTO user_notes (user_id, title, content) VALUES ($1, $2, $3) RETURNING *;",
             [userId, title, content]
         );
     }
 
-    async deleteUserNote(noteId: number): Promise<QueryResult<NoteType>> {
+    async deleteUserNote(noteId: number): Promise<QueryResult> {
         return pool.query(
             "DELETE FROM user_notes WHERE id = $1 RETURNING *;",
             [noteId]
         );
     }
 
-    async updateNoteStatus(noteId: number, status: "archived" | "active"): Promise<QueryResult<NoteType>> {
+    async updateNoteStatus(noteId: number, status: "archived" | "active"): Promise<QueryResult> {
         return pool.query(
             "UPDATE user_notes SET status = $1 WHERE id = $2 RETURNING *;",
             [status, noteId]
